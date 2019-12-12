@@ -1,0 +1,34 @@
+{
+  "name": "geotiff-painter",
+  "version": "1.0.0",
+  "description": "Read a geotiff tile and return a painted canvas",
+  "main": "dist/template.bundle.js",
+  "module": "dist/template.bundle.js",
+  "directories": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build-module && npm run build-examples",
+    "build-module": "rollup -c build/rollup.config.js",
+    "build-examples": "npm run rollup-examples",
+    "rollup-examples": "cd examples && rollup -c",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GlobeletJS/geotiff-painter.git"
+  },
+  "keywords": [
+    "geotiff",
+    "globelet"
+  ],
+  "author": "Ananya Roy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GlobeletJS/geotiff-painter/issues"
+  },
+  "homepage": "https://github.com/GlobeletJS/geotiff-painter#readme",
+  "dependencies": {
+    "d3": "^5.14.2",
+    "geotiff.js": "^1.0.1"
+  }
+}
