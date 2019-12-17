@@ -13,6 +13,17 @@
     "rollup-examples": "cd examples && rollup -c",
     "postversion": "git push && git push --tags"
   },
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "http-server": "^0.11.1",
+    "rollup": "^1.27.13",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GlobeletJS/geotiff-painter.git"
@@ -28,6 +39,7 @@
   },
   "homepage": "https://github.com/GlobeletJS/geotiff-painter#readme",
   "dependencies": {
+    "@babel/runtime": "^7.7.6",
     "d3": "^5.14.2",
     "geotiff.js": "^1.0.1"
   }

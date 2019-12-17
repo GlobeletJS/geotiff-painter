@@ -1,5 +1,4 @@
 'use strict';
-
 //const d3 = require("d3");
 //const GeoTIFF = require('geotiff');
 //paint(5,6,12);
