@@ -1,5 +1,5 @@
 import commonjs from 'rollup-plugin-commonjs';
-import babel from 'rollup-plugin-babel';
+//import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 import { glsl } from "./glsl-plugin.js";
 import pkg from "../package.json";
@@ -8,7 +8,7 @@ import builtins from 'rollup-plugin-node-builtins';
 
 export default {
   input: 'src/main.js',
-  external: [
+ /* external: [
     'babel-runtime/helpers/possibleConstructorReturn',
     'babel-runtime/helpers/inherits',
     'babel-runtime/regenerator',
@@ -24,21 +24,21 @@ export default {
     'url',
     'babel-runtime/helpers/toConsumableArray',
     'babel-runtime/helpers/toArray',
-  ],
+  ],*/
   plugins: [
     commonjs({
       namedExports: { 'geotiff.js': ['GeoTIFF'] }
     }),
     glsl(),
     resolve(),
-    babel({
-      exclude: 'node_modules/**' // only transpile our source code
-    }),
+  // babel({
+    //  exclude: 'node_modules/**' // only transpile our source code
+    //}),
     //  globals(),
     builtins(),
   ],
   output: {
-    globals:{
+    /*globals:{
       'babel-runtime/helpers/possibleConstructorReturn':'_possibleConstructorReturn3',
       'babel-runtime/helpers/inherits':'_inherits3',
       'babel-runtime/regenerator':'_regenerator2',
@@ -54,7 +54,7 @@ export default {
       'url':'_url2',
       'babel-runtime/helpers/toConsumableArray':'_toConsumableArray3',
       'babel-runtime/helpers/toArray':'_toArray3',
-    },
+    },*/
     file: pkg.main,
     //sourcemap: 'inline',
     format: 'esm',

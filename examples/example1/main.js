@@ -3,9 +3,9 @@
 //const GeoTIFF = require('geotiff');
 //paint(5,6,12);
 import * as d3 from "d3";
-import GeoTIFF from 'geotiff.js';
+import GeoTIFF from 'geotiff';
 
-export function paint(z, x, y){
+export function paint(z, x, y, rangeMin, rangeMax){
   //gdal labels tile differently, so we have to re-calculate them to match mapbox tile
   var z_gdal=6-z;
   var x_gdal=y+1;
@@ -37,7 +37,8 @@ export function paint(z, x, y){
       //Use this range to compute color values for each pixel
       var tileScale= d3.scaleLinear();
       tileScale
-        .domain([Math.log(tileRange[0]), Math.log(tileRange[1])])
+        //.domain([Math.log(tileRange[0]), Math.log(tileRange[1])])
+        .domain([Math.log(rangeMin), Math.log(rangeMax)])
         .range([0, 1]);
 
       var tileColor=[];
@@ -48,8 +49,11 @@ export function paint(z, x, y){
       //QC://console.log(tileColor[12]);
     
       //Now draw pixels on a canvas
-
+      var displayDiv=document.getElementById('map');
+      //var canvas = addChild(displayDiv, 'canvas', 'dsiplay-canvas');
       var canvas = document.createElement('canvas');
+      canvas.classList.add('display-canvas');
+      displayDiv.appendChild(canvas);
       canvas.width = 512;
       canvas.height = 512;
 
@@ -67,7 +71,7 @@ export function paint(z, x, y){
       }
       //console.log(imageData[48]);
       ctx.putImageData(imageData,0,0);
-      return canvas;
+      return ctx;
 
     });
 }

@@ -1,6 +1,6 @@
 var fs = require('fs');
 import commonjs from 'rollup-plugin-commonjs';
-import babel from 'rollup-plugin-babel';
+//import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 import json from 'rollup-plugin-json';
 import builtins from 'rollup-plugin-node-builtins';
@@ -15,7 +15,7 @@ const dirNames = fs
 function makeConfig(dir) {
   return {
     input: dir + '/main.js',
-    external: [
+  /*  external: [
       'babel-runtime/helpers/possibleConstructorReturn',
       'babel-runtime/helpers/inherits',
       'babel-runtime/regenerator',
@@ -31,21 +31,21 @@ function makeConfig(dir) {
       'url',
       'babel-runtime/helpers/toConsumableArray',
       'babel-runtime/helpers/toArray',
-    ],
+    ],*/
     plugins: [
       commonjs({
         namedExports: { 'geotiff.js': ['GeoTIFF'] }
       }),
       json(),
       resolve(),
-      babel({
-        exclude: 'node_modules/**' // only transpile our source code
-      }),
+  //   babel({
+  //     exclude: 'node_modules/**' // only transpile our source code
+  // }),
       //  globals(),
       builtins(),
     ],
     output: {
-      globals:{
+      /*globals:{
         'babel-runtime/helpers/possibleConstructorReturn':'_possibleConstructorReturn3',
         'babel-runtime/helpers/inherits':'_inherits3',
         'babel-runtime/regenerator':'_regenerator2',
@@ -61,7 +61,7 @@ function makeConfig(dir) {
         'url':'_url2',
         'babel-runtime/helpers/toConsumableArray':'_toConsumableArray3',
         'babel-runtime/helpers/toArray':'_toArray3',
-      },
+      },*/
       file: dir + '/main.min.js',
       format: 'iife',
       name: 'app',

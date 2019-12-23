@@ -4,7 +4,7 @@
 //const GeoTIFF = require('geotiff');
 //paint(5,6,12);
 import * as d3 from "d3";
-import GeoTIFF from 'geotiff.js';
+import GeoTIFF from 'geotiff';
 
 export function paint(z, x, y){
   //gdal labels tile differently, so we have to re-calculate them to match mapbox tile
