@@ -2,8 +2,8 @@
   "name": "geotiff-painter",
   "version": "1.0.0",
   "description": "Read a geotiff tile and return a painted canvas",
-  "main": "dist/template.bundle.js",
-  "module": "dist/template.bundle.js",
+  "main": "dist/geotiff-painter.bundle.js",
+  "module": "dist/geotiff-painter.bundle.js",
   "directories": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
