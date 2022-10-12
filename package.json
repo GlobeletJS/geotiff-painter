@@ -37,6 +37,6 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "d3": "^5.14.2",
-    "geotiff": "^1.0.0-beta.6"
+    "geotiff": "^1.0.9"
   }
 }
